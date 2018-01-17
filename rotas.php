@@ -30,6 +30,10 @@ function getPage()
                 include_once('views/pages/listaTeste.php');
                 break;
 
+            case '/novidades' :
+                include_once ('views/pages/novidades.php');
+                break;
+
             default :
                 include_once('views/pages/pageerror.php');
                 break;

@@ -30,6 +30,7 @@
                     <li><a href="#ajuda" class="teal-text text-lighten-1 modal-trigger">Ajuda</a></li>
                     <li><a href="animais-para-adocao.html" class="teal-text text-lighten-1">Animais para adoção</a></li>
                     <li><a href="animais-perdidos.html" class="teal-text text-lighten-1">Animais perdidos</a></li>
+                    <li><a href="/novidades" class="teal-text text-lighten-1">Novidades</a></li>
                     <li><a href="#login" class="teal-text text-lighten-1 modal-trigger">Login</a></li>
                     <li><input type="search" placeholder="Buscar"></li>
                     <li><a href="#"><i class="material-icons">search</i></a></li>

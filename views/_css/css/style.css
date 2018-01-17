@@ -94,6 +94,21 @@ footer.page-footer {
     background: #555; 
 }
 
-.dropdown-content{
+.autor{
+    font-size:70%;
+    font-style: italic;
+    font-size-adjust:initial ;
+}
+
+.titulo{
+    font-size: 300%;
+}
+
+.dropdown{
+    position: relative;
+    margin-left: 2.5rem;
+    background:#FAFAFA;
+    margin-bottom: 20px;
+    -webkit-align-content: center;
     max-height: 200px;
 }
