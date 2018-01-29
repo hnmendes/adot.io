@@ -1,142 +1,131 @@
-<!-- modal ajuda -->
-<div class="modal carousel" >
-    <div class="carousel carousel-slider center" data-indicators="true" style="max-height: 80%">
-        <div class="carousel-fixed-item center">
-            <a class="btn waves-effect white grey-text darken-text-2">button</a>
-        </div>
-        <div class="carousel-item red white-text" href="#one!">
-            <h2>First Panel</h2>
-            <p class="white-text">This is your first panel</p>
-        </div>
-        <div class="carousel-item amber white-text" href="#two!">
-            <h2>Second Panel</h2>
-            <p class="white-text">This is your second panel</p>
-        </div>
-        <div class="carousel-item green white-text" href="#three!">
-            <h2>Third Panel</h2>
-            <p class="white-text">This is your third panel</p>
-        </div>
-        <div class="carousel-item blue white-text" href="#four!">
-            <h2>Fourth Panel</h2>
-            <p class="white-text">This is your fourth panel</p>
-        </div>
-    </div>
-
-    </div>
-    <div class="modal-footer">
-        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Fechar</a>
-    </div>
-</div>
-
-<!-- Fim modal ajuda -->
-
 <!-- Modal cadastro -->
 <div id="cadastro" class="modal">
     <div class="modal-content">
         <div class="row">
 
-            <form class="col s12" method="POST" action="controllers\registrar.php">
+            <form class="col s12" id="formulario" method="POST" action="controllers/cadastro.php" onsubmit="validaCadastro();">
 
-                <div class="row">
+                <div class="row" style="bottom:80px;">
                     <div class="input-field col s6">
                         <i class="material-icons prefix">account_circle</i>
-                        <input  id="first_name" type="text" class="validate">
-                        <label for="first_name">Primeiro nome</label>
-                    </div>
-                    <div class="input-field col s5">
-                        <input id="last_name" type="text" class="validate">
-                        <label for="last_name">Último nome</label>
+                        <input  id="nome" type="text" class="validate" style="width: 610px">
+                        <label for="nome">* Nome completo</label>
                     </div>
                 </div>
 
-                <div class="row">
+                <div class="row" style="position: relative; top: -40px;">
                     <div class="input-field col s6">
                         <i class="material-icons prefix">location_city</i>
-                        <select class="dropdown" name="estados" required>
-                            <option value="">Selecione</option>
-                            <option value="1">Acre</option>
-                            <option value="2">Alagoas</option>
-                            <option value="3">Amapá</option>
-                            <option value="4">Amazonas</option>
-                            <option value="5">Bahia</option>
-                            <option value="6">Ceará</option>
-                            <option value="7">Distrito Federal</option>
-                            <option value="8">Espirito Santo</option>
-                            <option value="9">Goiás</option>
-                            <option value="10">Maranhão</option>
-                            <option value="11">Mato Grosso do Sul</option>
-                            <option value="12">Mato Grosso</option>
-                            <option value="13">Minas Gerais</option>
-                            <option value="14">Pará</option>
-                            <option value="15">Paraíba</option>
-                            <option value="16">Paraná</option>
-                            <option value="17">Pernambuco</option>
-                            <option value="18">Piauí</option>
-                            <option value="19">Rio de Janeiro</option>
-                            <option value="20">Rio Grande do Norte</option>
-                            <option value="21">Rio Grande do Sul</option>
-                            <option value="22">Rondônia</option>
-                            <option value="23">Roraima</option>
-                            <option value="24">Santa Catarina</option>
-                            <option value="25">São Paulo</option>
-                            <option value="26">Sergipe</option>
-                            <option value="27">Tocantins</option>
+                        <select class="dropdown" name="estados" id="estados" required>
+                            <option value="">* Estado</option>
+                            <option value="AC">Acre</option>
+                            <option value="AL">Alagoas</option>
+                            <option value="AP">Amapá</option>
+                            <option value="AM">Amazonas</option>
+                            <option value="BA">Bahia</option>
+                            <option value="CE">Ceará</option>
+                            <option value="DF">Distrito Federal</option>
+                            <option value="ES">Espirito Santo</option>
+                            <option value="GO">Goiás</option>
+                            <option value="MA">Maranhão</option>
+                            <option value="MS">Mato Grosso do Sul</option>
+                            <option value="MT">Mato Grosso</option>
+                            <option value="MG">Minas Gerais</option>
+                            <option value="PA">Pará</option>
+                            <option value="PB">Paraíba</option>
+                            <option value="PR">Paraná</option>
+                            <option value="PE">Pernambuco</option>
+                            <option value="PI">Piauí</option>
+                            <option value="RJ">Rio de Janeiro</option>
+                            <option value="RN">Rio Grande do Norte</option>
+                            <option value="RS">Rio Grande do Sul</option>
+                            <option value="RO">Rondônia</option>
+                            <option value="RR">Roraima</option>
+                            <option value="SC">Santa Catarina</option>
+                            <option value="SP">São Paulo</option>
+                            <option value="SE">Sergipe</option>
+                            <option value="TO">Tocantins</option>
                         </select>
                     </div>
 
                     <div class="input-field col s6">
-                        <input type="text" id="municipio" class="validade">
-                        <label for="municipio">Munícipio</label>
+                        <input type="text" id="municipio" name="municipio" class="validade">
+                        <label for="municipio">* Munícipio</label>
                     </div>
 
-                    <div class="row">
+                    <div class="row" >
                         <div class="input-field col s12">
                             <i class="material-icons prefix">email</i>
-                            <input type="email" id="e-mail" class="validate">
-                            <label for="e-mail">E-mail</label>
+                            <input type="email" id="email" name="email" class="validate">
+                            <label for="email">* E-mail</label>
                         </div>
                     </div>
 
-                    <div class="row">
+                    <div class="row" style="top: -5px; position: relative">
                         <div class="input-field col s6">
                             <i class="material-icons prefix">lock_outline</i>
                             <input type="password" id="senha" class="validate">
-                            <label for="senha">Senha</label>
+                            <label for="senha">* Senha</label>
                         </div>
 
                         <div class="input-field col s6">
                             <input type="password" id="senha2" class="validate">
-                            <label for="senha2">Confirmar Senha</label>
+                            <label for="senha2"><label class="red">*</label> Confirmar Senha</label>
                         </div>
                     </div>
 
-                    <div class="modal-footer">
-                        <button type="submit" class="modal-action modal-close waves-effect waves-teal btn-flat" name="send">
-                            Cadastrar   <i class="material-icons right">create</i>
-                        </button>
-
-                        <button href="#!" class="modal-action modal-close waves-effect waves-teal btn-flat">
-                            Cancelar    <i class="material-icons right">cancel</i>
-                        </button>
+                    <div class="row">
+                        <p class="erro">Preencha os campos obrigatórios *</p>
                     </div>
 
+                </div>
+
+                <div class="modal-footer">
+
+                    <button type="submit" class="btn waves-effect waves-teal">
+                        Cadastrar   <i class="material-icons right">create</i>
+                    </button>
+
+                    <button href="#!" class="modal-action modal-close waves-effect waves-teal btn">
+                        Cancelar    <i class="material-icons right">cancel</i>
+                    </button>
                 </div>
             </form>
 
         </div>
-    </div>
 
+    </div>
 
 </div>
 
+
+<script type="text/javascript">
+    var nome = document.getElementById('nome').innerHTML;
+    var email = document.getElementById('email').innerHTML;
+    var senha = document.getElementById('senha').innerHTML;
+    var csenha = document.getElementById('senha2').innerHTML;
+    var estados = document.getElementById('estados').innerHTML;
+    var municipios = document.getElementById('municipios').innerHTML;
+
+    if (nome === null){
+
+    }
+
+
+
+
+</script>
+
 <!-- Fim modal cadastro-->
+
+
 
 <!-- Modal login -->
 
 <div id="login" class="modal">
     <div class="modal-content">
         <div class="row">
-            <form class="col s12">
+            <form name="login" class="col s12" method="post" action="/logado">
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">email</i>
@@ -152,8 +141,6 @@
                         <label for="login-senha">Senha</label>
                     </div>
                 </div>
-
-            </form>
         </div>
     </div>
     <div class="modal-footer">
@@ -164,6 +151,7 @@
         <button type="#!" class="modal-action modal-close waves-effect waves-teal btn-flat">
             Cancelar    <i class="material-icons right">cancel</i>
         </button>
+        </form>
     </div>
 </div>
 

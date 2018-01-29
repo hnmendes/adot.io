@@ -8111,7 +8111,7 @@ input[type=range]:focus::-ms-fill-upper {
 
 .slider.fullscreen ul.indicators {
   z-index: 2;
-  bottom: 30px;
+  bottom: 200px;
 }
 
 .slider .slides {

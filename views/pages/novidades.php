@@ -9,7 +9,7 @@
             <br><br>
         <div class="section ">
             <h2 class="header titulo">Alguma postagem futura</h2>
-            <p class="autor">Auto: Henrique Nunes</p>
+            <p class="autor">Autor: Henrique Nunes</p>
         </div>
         <div class="divider"></div>
 

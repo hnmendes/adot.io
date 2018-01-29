@@ -25,6 +25,7 @@
 <script src="views\_css\js\jquery.js"></script>
 <script src="views\_css\js\materialize.js"></script>
 <script src="views\_css\js\init.js"></script>
+<script src="views\_css\js\jquery."
 
 
 <script>
@@ -53,6 +54,10 @@
     $( "#send" ).click(function() {
         var count = $("#options :selected").length;
         alert( count );
+    });
+
+    $(document).ready(function(){
+        $('.slider').slider();
     });
 
 

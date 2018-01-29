@@ -100,9 +100,29 @@ footer.page-footer {
     font-size-adjust:initial ;
 }
 
+.logado{
+    background-color: #26A69A;
+    max-height: 200px ;
+    max-width: 1500px;
+}
+
+.logado a{
+    color: #79C1BB;
+}
+
 .titulo{
     font-size: 300%;
 }
+
+.erro{
+    font-family: "Arial";
+    color:red;
+    position: relative;
+    left: 60px;
+    font-size: 15.5px;
+    top: 20px;
+}
+
 
 .dropdown{
     position: relative;

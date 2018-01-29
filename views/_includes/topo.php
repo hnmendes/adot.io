@@ -27,16 +27,23 @@
                 <a id="logo-container" href="#" class="brand-logo teal-text text-lighten-1">Adot.io <img width="20" src="views/_images/cat.png"></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="/home" class="teal-text text-lighten-1">Inicio</a></li>
-                    <li><a href="#ajuda" class="teal-text text-lighten-1 modal-trigger">Ajuda</a></li>
+                    <li><a href="/ajuda" class="teal-text text-lighten-1 modal-trigger">Ajuda</a></li>
                     <li><a href="animais-para-adocao.html" class="teal-text text-lighten-1">Animais para adoção</a></li>
                     <li><a href="animais-perdidos.html" class="teal-text text-lighten-1">Animais perdidos</a></li>
                     <li><a href="/novidades" class="teal-text text-lighten-1">Novidades</a></li>
-                    <li><a href="#login" class="teal-text text-lighten-1 modal-trigger">Login</a></li>
+                    <?php
+
+                    if(isset($_REQUEST['login'])){
+
+                    }else{
+                        echo '<li><a href="#login" class="teal-text text-lighten-1 modal-trigger">Login</a></li>';
+                    }
+                    ?>
                     <li><input type="search" placeholder="Buscar"></li>
                     <li><a href="#"><i class="material-icons">search</i></a></li>
                 </ul>
 
-                <ul id="nav-mobile" class="side-nav">
+                <ul id="nav-mobile" class="side-nav ">
                     <li class="active teal-text text-lighten-1"><a href="index.html">Home</a></li>
                     <li><a href="#ajuda" class="teal-text text-lighten-1">Ajuda</a></li>
                     <li><a href="animais-para-adocao.html" class="teal-text text-lighten-1">Animais para adoção</a></li>

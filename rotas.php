@@ -27,17 +27,28 @@ function getPage()
                 break;
 
             case '/listaTeste' :
-                include_once('views/pages/listaTeste.php');
+                include_once('views/pages/ajuda.php');
                 break;
 
             case '/novidades' :
                 include_once ('views/pages/novidades.php');
                 break;
 
+            case '/ajuda' :
+                include_once ('views/pages/ajuda.php');
+                break;
+
             default :
                 include_once('views/pages/pageerror.php');
                 break;
 
+        }
+    }else if ($metodo == 'POST'){
+
+        switch($url) {
+            case '/logado' :
+                include_once('views/pages/logado.php');
+                break;
         }
     }
 
