@@ -39,8 +39,7 @@
                         echo '<li><a href="#login" class="teal-text text-lighten-1 modal-trigger">Login</a></li>';
                     }
                     ?>
-                    <li><input type="search" placeholder="Buscar"></li>
-                    <li><a href="#"><i class="material-icons">search</i></a></li>
+
                 </ul>
 
                 <ul id="nav-mobile" class="side-nav ">

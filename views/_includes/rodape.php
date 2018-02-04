@@ -22,11 +22,10 @@
 <!-- Fim rodapé -->
 
 <!--  Scripts-->
+<script src="views\_css\js\jquery.validate.js"></script>
 <script src="views\_css\js\jquery.js"></script>
 <script src="views\_css\js\materialize.js"></script>
 <script src="views\_css\js\init.js"></script>
-<script src="views\_css\js\jquery."
-
 
 <script>
     $('.modal').modal({
@@ -43,7 +42,6 @@
             complete: function() { } // Callback for Modal close
         }
     );
-
 
     $('.carousel.carousel-slider').carousel({fullWidth: true});
 

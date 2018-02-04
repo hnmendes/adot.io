@@ -8,7 +8,7 @@
                 <div class="row" style="bottom:80px;">
                     <div class="input-field col s6">
                         <i class="material-icons prefix">account_circle</i>
-                        <input  id="nome" type="text" class="validate" style="width: 610px">
+                        <input  id="nome" name="nome" type="text" class="validate" style="width: 610px" required>
                         <label for="nome">* Nome completo</label>
                     </div>
                 </div>
@@ -56,7 +56,7 @@
                     <div class="row" >
                         <div class="input-field col s12">
                             <i class="material-icons prefix">email</i>
-                            <input type="email" id="email" name="email" class="validate">
+                            <input type="email" id="email" name="email" class="validate" required>
                             <label for="email">* E-mail</label>
                         </div>
                     </div>
@@ -64,18 +64,14 @@
                     <div class="row" style="top: -5px; position: relative">
                         <div class="input-field col s6">
                             <i class="material-icons prefix">lock_outline</i>
-                            <input type="password" id="senha" class="validate">
+                            <input type="password" id="senha" name="senha" class="validate" required minlength="8">
                             <label for="senha">* Senha</label>
                         </div>
 
                         <div class="input-field col s6">
-                            <input type="password" id="senha2" class="validate">
-                            <label for="senha2"><label class="red">*</label> Confirmar Senha</label>
+                            <input type="password" id="senha2" name="senha2" class="validate" required minlength="8">
+                            <label for="senha2">* Confirmar Senha</label>
                         </div>
-                    </div>
-
-                    <div class="row">
-                        <p class="erro">Preencha os campos obrigatórios *</p>
                     </div>
 
                 </div>
@@ -98,27 +94,9 @@
 
 </div>
 
-
-<script type="text/javascript">
-    var nome = document.getElementById('nome').innerHTML;
-    var email = document.getElementById('email').innerHTML;
-    var senha = document.getElementById('senha').innerHTML;
-    var csenha = document.getElementById('senha2').innerHTML;
-    var estados = document.getElementById('estados').innerHTML;
-    var municipios = document.getElementById('municipios').innerHTML;
-
-    if (nome === null){
-
-    }
-
-
-
-
-</script>
-
 <!-- Fim modal cadastro-->
 
-
+<!-- ***************************************************************************************************************************** -->
 
 <!-- Modal login -->
 
