@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html lang="pt-bt">
 <head>
+
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Adot.io</title>
@@ -15,6 +16,13 @@
     <link href="views\_css\css\materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     <link href="views\_css\css\style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
+    <!-- SOLUCAO PARA O NAVBAR-MOBILE-->
+    <style type="text/css">
+        .navbar-fixed {
+        z-index: 998;
+        }
+    </style>
+    
 </head>
 <body>
 
@@ -43,8 +51,8 @@
                 </ul>
 
                 <ul id="nav-mobile" class="side-nav ">
-                    <li class="active teal-text text-lighten-1"><a href="index.html">Home</a></li>
-                    <li><a href="#ajuda" class="teal-text text-lighten-1">Ajuda</a></li>
+                    <li><a href="/home"  class="teal-text text-lighten-1">Home</a></li>
+                    <li><a href="/ajuda" class="teal-text text-lighten-1">Ajuda</a></li>
                     <li><a href="animais-para-adocao.html" class="teal-text text-lighten-1">Animais para adoção</a></li>
                     <li><a href="animais-perdidos.html" class="teal-text text-lighten-1">Animais perdidos</a></li>
                     <li><a href="#login" class="teal-text text-lighten-1 modal-trigger">Login</a></li>
