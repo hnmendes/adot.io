@@ -70,7 +70,7 @@
         <div class="section no-pad-bot">
             <div class="container">
                 <div class="row center">
-                    <h5 class="header col s12 light" style="text-shadow: 1px 1px 1px 1px black;">Adotar é um ato de amor incondicional, praticado apenas por aqueles que têm a coragem de dar um novo passo e um rumo na vida e família. Além de ser maravilhoso. Se você puder ou tiver a necessidade, adote!</h5>
+                    <h5 class="header col s12 light" style="text-shadow: 50px 50px 50px 50px black;"><b>Adotar é um ato de amor incondicional, praticado apenas por aqueles que têm a coragem de dar um novo passo e um rumo na vida e família. Além de ser maravilhoso. Se você puder ou tiver a necessidade, adote!</b></h5>
                 </div>
             </div>
         </div>
