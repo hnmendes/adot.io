@@ -6,9 +6,9 @@
             <form class="col s12" id="formulario" method="POST" action="controllers/cadastro.php" onsubmit="validaCadastro();">
 
                 <div class="row" style="bottom:80px;">
-                    <div class="input-field col s6">
+                    <div class="input-field col s12">
                         <i class="material-icons prefix">account_circle</i>
-                        <input  id="nome" name="nome" type="text" class="validate" style="width: 610px" required>
+                        <input  id="nome" name="nome" type="text" class="validate"  required>
                         <label for="nome">* Nome completo</label>
                     </div>
                 </div>
