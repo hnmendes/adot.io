@@ -65,12 +65,12 @@
                         <div class="input-field col s6">
                             <i class="material-icons prefix">lock_outline</i>
                             <input type="password" id="senha" name="senha" class="validate" required minlength="8">
-                            <label for="senha">* Senha</label>
+                            <label for="senha">*Senha</label>
                         </div>
 
                         <div class="input-field col s6">
                             <input type="password" id="senha2" name="senha2" class="validate" required minlength="8">
-                            <label for="senha2">* Confirmar Senha</label>
+                            <label for="senha2">*Confirmar</label>
                         </div>
                     </div>
 
@@ -119,16 +119,21 @@
                         <label for="login-senha">Senha</label>
                     </div>
                 </div>
+            </div>
         </div>
-    </div>
-    <div class="modal-footer">
-        <button type="submit" class="modal-action modal-close waves-effect waves-teal btn-flat">
-            Login      <i class="material-icons right">chevron_right</i>
-        </button>
-
-        <button type="#!" class="modal-action modal-close waves-effect waves-teal btn-flat">
-            Cancelar    <i class="material-icons right">cancel</i>
-        </button>
+        <div class="modal-footer">
+            <div class="row">
+                <div class="col s6">
+                    <button type="submit" class="modal-action modal-close waves-effect waves-teal btn-flat">
+                        Login      <i class="material-icons right">chevron_right</i>
+                    </button>
+                </div>
+                <div class="col s6">
+                    <button type="#!" class="modal-action modal-close waves-effect waves-teal btn-flat">
+                        Cancelar    <i class="material-icons right">cancel</i>
+                    </button>
+                </div>
+            </div>
         </form>
     </div>
 </div>
