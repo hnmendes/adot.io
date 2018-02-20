@@ -52,7 +52,7 @@
                 </ul>
 
                 <ul id="nav-mobile" class="side-nav ">
-                    <i class="material-icons">home</i><li class="teal-text text-lighten-1"><a href="/home">Home</a></li>
+                    <li><a href="/home" class="teal-text text-lighten-1">Home</a></li>
                     <li><a href="/ajuda" class="teal-text text-lighten-1">Ajuda</a></li>
                     <li><a href="animais-para-adocao.html" class="teal-text text-lighten-1">Animais para adoção</a></li>
                     <li><a href="animais-perdidos.html" class="teal-text text-lighten-1">Animais perdidos</a></li>
