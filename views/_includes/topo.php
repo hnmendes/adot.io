@@ -37,7 +37,7 @@
                 <ul class="right hide-on-med-and-down">
                     <li><a href="/home" class="teal-text text-lighten-1">Inicio</a></li>
                     <li><a href="/ajuda" class="teal-text text-lighten-1 modal-trigger">Ajuda</a></li>
-                    <li><a href="animais-para-adocao.html" class="teal-text text-lighten-1">Animais para adoção</a></li>
+                    <li><a href="/animais_para_adocao" class="teal-text text-lighten-1">Animais para adoção</a></li>
                     <li><a href="animais-perdidos.html" class="teal-text text-lighten-1">Animais perdidos</a></li>
                     <li><a href="/novidades" class="teal-text text-lighten-1">Novidades</a></li>
                     <?php
