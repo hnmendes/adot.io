@@ -18,6 +18,10 @@ function getPage()
             case '/adot.io/' :
                 include_once('views/pages/home.php');
 
+            case '/animais_para_adocao' :
+                include_once('views/pages/adocao.php');
+                break;
+
             case '/home' :
                 include_once('views/pages/home.php');
                 break;
