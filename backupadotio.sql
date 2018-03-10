@@ -65,6 +65,8 @@ CREATE TABLE `animais_perdidos` (
   `foto` varchar(255) NOT NULL,
   `descricao` text,
   `usuario_id` int(11) NOT NULL,
+  `tipo` varchar(255) NOT NULL,
+  `situacao` int(11) DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `usuario_id` (`usuario_id`),
   CONSTRAINT `animais_perdidos_ibfk_1` FOREIGN KEY (`usuario_id`) REFERENCES `usuario` (`id`),
@@ -176,4 +178,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-03-10  2:17:11
+-- Dump completed on 2018-03-10 10:02:30
