@@ -22,8 +22,8 @@
 <!-- Fim rodapé -->
 
 <!--  Scripts-->
-<script src="views\_css\js\jquery.validate.js"></script>
 <script src="views\_css\js\jquery.js"></script>
+<script src="views\_css\js\jquery.validate.js"></script>
 <script src="views\_css\js\materialize.js"></script>
 <script src="views\_css\js\init.js"></script>
 
@@ -43,6 +43,9 @@
         }
     );
 
+
+    // $('#close').modal('close');
+
     $('.carousel.carousel-slider').carousel({fullWidth: true});
 
     $(document).ready(function() {
@@ -58,7 +61,20 @@
         $('.slider').slider();
     });
 
-
+    
+        $('.dropdown-button').dropdown({
+          inDuration: 300,
+          outDuration: 225,
+      constrainWidth: false, // Does not change width of dropdown to that of the activator
+      hover: false, // Activate on hover
+      gutter: 0, // Spacing from edge
+      belowOrigin: false, // Displays dropdown below the button
+      alignment: 'left', // Displays dropdown with edge aligned to the left of button
+      stopPropagation: false // Stops event propagation
+  }
+  );
 </script>
+
+
 </body>
 </html>

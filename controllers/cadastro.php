@@ -1,14 +1,24 @@
 <?php
 
-define ('HOST', 'localhost');
-define ('USUARIOBD','root');
-define ('SENHABD','1234');
-define('NOMEDB','adotio');
+if (isset($_POST) || is_array($_POST) || $_POST['nome'] != "" || $_POST['email'] != "" || $_POST['estado'] != "" || $_POST['municipio'] != "" || $_POST['senha'] != "") {
 
-$conexao = new mysqli(HOST,USUARIOBD,SENHABD,NOMEDB);
+    $nome = $_POST['nome'];
+    $email = $_POST['email'];
+    $estado = $_POST['estado'];
+    $municipio = $_POST['municipio'];
+    $senha = $_POST['senha'];
 
-if($conexao->connect_error){
-    echo "Erro ao conectar-se, detalhes: ".$conexao->connect_error. " Recomendo que busque na internet do que se trata o erro.";
-}else{
-    echo "jooj";
+    $nome = strip_tags($nome);
+    $email = strip_tags($email);
+    $estado = strip_tags($estado);
+    $municipio = strip_tags($municipio);
+    $senha = strip_tags($senha);
+
+    $usuarioForm = new Usuario($nome, $email, $estado, $municipio, $senha);
+
+    $usuarioForm->registraUsuario();
+
+    echo '<script>Usuario cadastrado com sucesso.</script>';
+} else {
+    echo '<script>alert("Preencha os dados corretamente.");</script>';
 }

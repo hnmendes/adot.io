@@ -8,9 +8,18 @@
                 <div class="row center">
                     <h5 class="header col s12 light">Uma rede social para pessoas que amam os animais</h5>
                 </div>
-                <div class="row center">
-                    <a href="#cadastro" id="download-button" class="btn-large waves-effect waves-light teal lighten-1 hoverable modal-trigger">Clique aqui e inscreva-se</a>
-                </div>
+                
+                <?php
+
+
+
+                        if(!isset($_SESSION['logado'])){
+                            echo '<div class="row center">
+                                <a href="#cadastro" id="download-button" class="btn-large waves-effect waves-light teal lighten-1 hoverable modal-trigger">Clique aqui e inscreva-se</a></div>';
+                        
+                        }
+                ?>                
+
                 <br><br>
 
             </div>
@@ -25,10 +34,11 @@
             <div class="row">
                 <div class="col s12 m4">
                     <div class="icon-block">
-                        <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
-                        <h5 class="center">Chat</h5>
+                        <h2 class="center brown-text"><i class="material-icons">email</i></h2>
+                        <h5 class="center">Sistema de email</h5>
 
-                        <p class="light">Chat inovador para o compartilhamento de informações e contato maior entre os amantes dos bichinhos.</p>
+                        <p class="light">Email para o compartilhamento de informações e contato maior entre os amantes dos bichinhos.</p>
+
                     </div>
                 </div>
 
@@ -70,7 +80,7 @@
         <div class="section no-pad-bot">
             <div class="container">
                 <div class="row center">
-                    <h5 class="header col s12 light" style="text-shadow: 50px 50px 50px 50px black;"><b>Adotar é um ato de amor incondicional, praticado apenas por aqueles que têm a coragem de dar um novo passo e um rumo na vida e família. Além de ser maravilhoso. Se você puder ou tiver a necessidade, adote!</b></h5>
+                    <h5 class="header col s12 light grey" style="text-shadow: 50px 50px 50px 50px black;"><b>Adotar é um ato de amor incondicional, praticado apenas por aqueles que têm a coragem de dar um novo passo e um rumo na vida e família. Além de ser maravilhoso. Se você puder ou tiver a necessidade, adote!</b></h5>
                 </div>
             </div>
         </div>
@@ -79,3 +89,4 @@
     <!-- Fim corpo -->
 
 </main>
+

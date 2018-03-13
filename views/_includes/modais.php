@@ -3,20 +3,20 @@
     <div class="modal-content">
         <div class="row">
 
-            <form class="col s12" id="formulario" method="POST" action="controllers/cadastro.php" onsubmit="validaCadastro();">
+            <form class="col s12" id="formulario" method="POST" action="/cadastro">
 
-                <div class="row" style="bottom:80px;">
+                <div class="row" style="/*bottom:80px;">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">account_circle</i>
-                        <input  id="nome" name="nome" type="text" class="validate"  required>
+                        <input  id="nome" name="nome" type="text" class="validate" required>
                         <label for="nome">* Nome completo</label>
                     </div>
                 </div>
 
-                <div class="row" style="position: relative; top: -40px;">
+                <div class="row" style="/*position: relative; /*top: -40px;">
                     <div class="input-field col s6">
                         <i class="material-icons prefix">location_city</i>
-                        <select class="dropdown" name="estados" id="estados" required>
+                        <select class="dropdown validate" name="estado" id="estado" required>
                             <option value="">* Estado</option>
                             <option value="AC">Acre</option>
                             <option value="AL">Alagoas</option>
@@ -47,44 +47,41 @@
                             <option value="TO">Tocantins</option>
                         </select>
                     </div>
-
-                    <div class="input-field col s6">
-                        <input type="text" id="municipio" name="municipio" class="validade">
-                        <label for="municipio">* Munícipio</label>
+                    
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input type="text" id="municipio" name="municipio" class="validade" required>
+                            <label for="municipio">* Munícipio</label>
+                        </div>
                     </div>
 
                     <div class="row" >
-                        <div class="input-field col s12">
+                        <div class="input-field col s6">
                             <i class="material-icons prefix">email</i>
                             <input type="email" id="email" name="email" class="validate" required>
                             <label for="email">* E-mail</label>
                         </div>
-                    </div>
 
-                    <div class="row" style="top: -5px; position: relative">
                         <div class="input-field col s6">
                             <i class="material-icons prefix">lock_outline</i>
-                            <input type="password" id="senha" name="senha" class="validate" required minlength="8">
+                            <input type="password" id="senha" name="senha" class="validate" required>
                             <label for="senha">*Senha</label>
                         </div>
+                    </div>
 
-                        <div class="input-field col s6">
-                            <input type="password" id="senha2" name="senha2" class="validate" required minlength="8">
-                            <label for="senha2">*Confirmar</label>
-                        </div>
+                    <div class="row" style="/*top: -5px; position: relative">
+                        
                     </div>
 
                 </div>
 
                 <div class="modal-footer">
 
-                    <button type="submit" class="btn waves-effect waves-teal">
+                    <button type="submit" class="btn waves-effect waves-teal" style="margin-right: 300px;" >
                         Cadastrar   <i class="material-icons right">create</i>
                     </button>
 
-                    <button href="#!" class="modal-action modal-close waves-effect waves-teal btn">
-                        Cancelar    <i class="material-icons right">cancel</i>
-                    </button>
+                    
                 </div>
             </form>
 
@@ -103,19 +100,24 @@
 <div id="login" class="modal">
     <div class="modal-content">
         <div class="row">
-            <form name="login" class="col s12" method="post" action="/logado">
+            <form name="login" class="col s12" method="post" action="/login" onsubmit="//validaLogin();">
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">email</i>
-                        <input type="email" id="login-email" class="validate">
+                        <input type="email" name="lemail" id="login-email" class="validate" required>
                         <label for="login-email">E-mail</label>
+                        <div class="input-field col s12" style="margin-left: 35px; margin-top: -30px;">
+                            <p style="color:red;" id="erroLogin"> 
+                            
+                            </p>
+                        </div>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">lock_outline</i>
-                        <input type="password" id="login-senha" class="validate">
+                        <input type="password" name="lsenha" id="login-senha" class="validate" required>
                         <label for="login-senha">Senha</label>
                     </div>
                 </div>
@@ -124,13 +126,8 @@
         <div class="modal-footer">
             <div class="row">
                 <div class="col s6">
-                    <button type="submit" class="modal-action modal-close waves-effect waves-teal btn-flat">
+                    <button type="submit" style="margin-right: -100px; margin-bottom: -100;" class=" waves-effect waves-teal btn-flat btn" name="submit" >
                         Login      <i class="material-icons right">chevron_right</i>
-                    </button>
-                </div>
-                <div class="col s6">
-                    <button type="#!" class="modal-action modal-close waves-effect waves-teal btn-flat">
-                        Cancelar    <i class="material-icons right">cancel</i>
                     </button>
                 </div>
             </div>
@@ -140,3 +137,35 @@
 
 <!-- Fim modal login-->
 
+<!-- Validação do Login -->
+
+<script type="text/javascript">
+
+    function validaCadastro(){
+        
+        var senha = document.formulario.senha.value;
+        var senha2 = document.formulario.senha2.value;
+        var email = document.formulario.email.value;
+
+        if(email == ''){
+            document.formulario.email.focus();
+            alert("Digite algo no email");
+            return false;
+        }else{
+            return true;
+        }
+
+        if(senha != senha2){
+            alert("Senhas não coincidem.");
+            return false;
+        }else{
+            return true;
+        }
+
+        
+
+    
+
+    
+
+</script>

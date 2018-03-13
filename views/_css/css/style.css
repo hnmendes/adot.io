@@ -11,7 +11,19 @@ nav .brand-logo {
   color: #444;
 }
 
+#paragrafo_topo{
+  margin-top: 20px;
+}
 
+.adocao-animais{
+  position:relative;
+  margin-left:20%;
+
+}
+
+.filtro{
+  position:fixed;
+}
 
 p {
   line-height: 2rem;
@@ -71,29 +83,28 @@ footer.page-footer {
 
 /*BARRA DE ROLAGEM EDITADO */
 
-/* width 
+/* width */
 ::-webkit-scrollbar {
     width: 7px;
     
 }
 
-/* Track 
+/* Track */
 ::-webkit-scrollbar-track {
     background: #f1f1f1; 
 
 }
  
-/* Handle 
+/* Handle */
 ::-webkit-scrollbar-thumb {
     background: #26a69a;
     border-radius: 10px;
 }
 
-/* Handle on hover 
+/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: #555; 
 }
-*/
 
 .autor{
     font-size:70%;
@@ -132,48 +143,4 @@ footer.page-footer {
     margin-bottom: 20px;
     -webkit-align-content: center;
     max-height: 200px;
-}
-
-
-/* -- pagina de gabriel */
-
-@media only screen and (max-width : 600px) {
-  .parallax-container .section {
-    position: absolute;
-    top: 30%;
-  }
-  #index-banner .section {
-    top: 20%;
-  }
-}
-
-@media only screen and (max-width : 200px) {
-  #index-banner .section {
-    top: 0;
-  }
-}
-
-
-#cx{
-  position: relative;
-  float: left;
-  margin-left: 45px;
-}
-
-#final{
-  position:fixed;
-  Bottom: 0;
-  Left: 0;
-}
-
-#lista{
-  text-align: right;
-  color: #5eb5aa;
-  font-size: 20px;
-}
-
-#modal1{
-  font-size: 30px
-  color #5eb5aa;
-  text-align: center;
 }
