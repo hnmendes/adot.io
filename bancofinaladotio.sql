@@ -36,7 +36,7 @@ CREATE TABLE `animais_adocao` (
   PRIMARY KEY (`id`),
   KEY `animais_adocao_ibfk_1` (`usuario_id`),
   CONSTRAINT `animais_adocao_ibfk_1` FOREIGN KEY (`usuario_id`) REFERENCES `usuario` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -70,7 +70,7 @@ CREATE TABLE `animais_perdidos` (
   KEY `animais_perdidos_ibfk_1` (`usuario_id`),
   CONSTRAINT `animais_perdidos_ibfk_1` FOREIGN KEY (`usuario_id`) REFERENCES `usuario` (`id`) ON DELETE CASCADE,
   CONSTRAINT `animais_perdidos_ibfk_2` FOREIGN KEY (`usuario_id`) REFERENCES `usuario` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -80,64 +80,6 @@ CREATE TABLE `animais_perdidos` (
 LOCK TABLES `animais_perdidos` WRITE;
 /*!40000 ALTER TABLE `animais_perdidos` DISABLE KEYS */;
 /*!40000 ALTER TABLE `animais_perdidos` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `contato_adocao`
---
-
-DROP TABLE IF EXISTS `contato_adocao`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `contato_adocao` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `email` varchar(255) NOT NULL,
-  `descricao` varchar(255) DEFAULT NULL,
-  `animal_adocao_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `contato_adocao_ibfk_1` (`animal_adocao_id`),
-  CONSTRAINT `contato_adocao_ibfk_1` FOREIGN KEY (`animal_adocao_id`) REFERENCES `animais_adocao` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `contato_adocao`
---
-
-LOCK TABLES `contato_adocao` WRITE;
-/*!40000 ALTER TABLE `contato_adocao` DISABLE KEYS */;
-/*!40000 ALTER TABLE `contato_adocao` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `contato_perdido`
---
-
-DROP TABLE IF EXISTS `contato_perdido`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `contato_perdido` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `email` varchar(255) NOT NULL,
-  `bairro` varchar(255) NOT NULL,
-  `foto` varchar(255) NOT NULL,
-  `complemento` varchar(255) DEFAULT NULL,
-  `rua` varchar(255) NOT NULL,
-  `descricao` varchar(255) DEFAULT NULL,
-  `animal_perdido_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `contato_perdido_ibfk_1` (`animal_perdido_id`),
-  CONSTRAINT `contato_perdido_ibfk_1` FOREIGN KEY (`animal_perdido_id`) REFERENCES `animais_perdidos` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `contato_perdido`
---
-
-LOCK TABLES `contato_perdido` WRITE;
-/*!40000 ALTER TABLE `contato_perdido` DISABLE KEYS */;
-/*!40000 ALTER TABLE `contato_perdido` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -185,9 +127,8 @@ CREATE TABLE `usuario` (
   `foto` varchar(255) DEFAULT NULL,
   `descricao` text,
   `acesso` int(11) DEFAULT '0',
-  `titulo_novidade` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -208,4 +149,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-03-19  2:06:12
+-- Dump completed on 2018-03-21  0:24:27
