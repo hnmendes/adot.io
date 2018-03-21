@@ -36,7 +36,7 @@ CREATE TABLE `animais_adocao` (
   PRIMARY KEY (`id`),
   KEY `animais_adocao_ibfk_1` (`usuario_id`),
   CONSTRAINT `animais_adocao_ibfk_1` FOREIGN KEY (`usuario_id`) REFERENCES `usuario` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -45,6 +45,7 @@ CREATE TABLE `animais_adocao` (
 
 LOCK TABLES `animais_adocao` WRITE;
 /*!40000 ALTER TABLE `animais_adocao` DISABLE KEYS */;
+INSERT INTO `animais_adocao` VALUES (1,'Pitinho',1,'Vira lata','','11521607543.jpg','Olá encontrei este cachorro na rua, e não tenho condições nenhuma de cria-lo, pois já tenho 2... Gostaria de alguém que quisesse adota-lo e dar um lar melhor para ele.',1,'Cachorro',0);
 /*!40000 ALTER TABLE `animais_adocao` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -128,7 +129,7 @@ CREATE TABLE `usuario` (
   `descricao` text,
   `acesso` int(11) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -137,6 +138,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
+INSERT INTO `usuario` VALUES (1,'Henrique Nunes','henriquenunesti@gmail.com','PE','Recife','fbi12219',NULL,NULL,0);
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -149,4 +151,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-03-21  0:24:27
+-- Dump completed on 2018-03-21  1:51:08
