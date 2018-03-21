@@ -138,7 +138,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (1,'Henrique Nunes','henriquenunesti@gmail.com','PE','Recife','fbi12219',NULL,NULL,0);
+INSERT INTO `usuario` VALUES (1,'Henrique Nunes','henriquenunesti@gmail.com','PE','Recife','123',NULL,NULL,1);
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
