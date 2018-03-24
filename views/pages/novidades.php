@@ -25,6 +25,7 @@
     // print_r($novidade);
 
     // $cont = count($array);
+    if(is_array($novidade) && count($novidade) != 0){
 
     for($i = 0; $i < count($novidade); $i++){
     
@@ -40,15 +41,21 @@
             <div class="card-content">
                     <p>'.$novidade[$i]['descricao'].'
                     </p>
-                </div>
-                <div class="card-action">
+                </div>';
+
+        if(isset($_SESSION['logado']) && $_SESSION['nome'] == $novidade[$i]['autor']){    
+            
+            echo    '<div class="card-action">
                 <form method="POST" action="/deletarnovidade">
 
                     <input type="hidden" name="id_novidade" value="'.$novidade[$i]['id'].'">
                     <button type="submit" class="btn">Deletar Publicação</button>
                 </form>
 
-                </div>
+                </div>';
+
+            }
+        echo'        
             </div></div>
                 </div>
             </div>';
@@ -57,7 +64,14 @@
 
 
     }
+}else{
 
+    echo '<div class="container"><div class="card"><div class="card-content">';
+    echo '<h3>Não há novidades aqui, ainda.</h3><br>';
+    echo '<h5>Aguarde por mais novidades por parte dos administradores</h5>';
+    echo '<img class="responsive-img" src="views/_images/vira-lata.jpg">';
+    echo '</div></div></div>';
+}
 
 ?>
 

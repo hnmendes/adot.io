@@ -127,9 +127,24 @@
 
 
                 if($animal['situacao'] == 0){
-					echo '<p style="color:blue;">Animal disponível para adoção.</p>
-						<button class="btn">Adotar</button>
-                            <div class="divider"></div>';
+					echo '<p style="color:blue;">Animal disponível para adoção.</p><br>';
+					
+					if(isset($_SESSION['logado']) && $animal['usuario_id'] != $_SESSION['id']){
+						$idusuarioLogado = $_SESSION['id'];
+						$idusuarioAnimal = $animal['usuario_id'];
+						$idanimal = $animal['id'];
+						
+						echo '<form method="post" action="/adotar">';
+						echo '<input type="hidden" name="logado" value="'.$idusuarioLogado.'">';
+						echo '<input type="hidden" name="usuarioAnimal" value="'.$idusuarioAnimal.'">';
+						echo '<input type="hidden" name="idanimal" value="'.$idanimal.'">';
+						echo '<input type="submit" value="Adotar" class="btn">';
+						echo '</form>';
+					}else{
+						echo '<p>Cadastre-se e entre, para adotar este animal.</p>';
+					}
+								
+					echo '<div class="divider"></div>';
                 }else if($animal['situacao'] == 3){
                     echo '<p style="color:red;">Animal se encontra na situação de removido da lista.</p>';
                 
@@ -151,6 +166,8 @@
 					
 					// var_dump($animal['id']);
 				}
+
+
 
 	
 				?>

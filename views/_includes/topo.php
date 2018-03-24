@@ -46,12 +46,16 @@
 
                     <?php
 
+                    // session_cache_expire();
+
                     session_start();
 
-                    if(isset($_SESSION['logado'])){
-                        
+                     
 
-                                 echo '<a class="dropdown-button btn" href="#" data-activates="dropdown1">'.$_SESSION['nome'].'</a><ul id="dropdown1" class="dropdown-content"><li><a class="teal-text text-lighten-1" href="/logado">Minha conta</a></li><li><a class="teal-text text-lighten-1" href="/deslogin">Sair</a></li></ul>';
+                    if(isset($_SESSION['logado'])){
+                               
+
+                     echo '<a class="dropdown-button btn" href="#" data-activates="dropdown1">'.$_SESSION['nome'].'</a><ul id="dropdown1" class="dropdown-content"><li><a class="teal-text text-lighten-1" href="/logado">Minha conta</a></li><li><a class="teal-text text-lighten-1" href="/deslogin">Sair</a></li></ul>';
 
 
                         // echo '<li><a class="btn" href="/deslogin">Sair</a><li>';

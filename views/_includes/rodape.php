@@ -14,7 +14,7 @@
     </div>
     <div class="footer-copyright">
         <div class="container center">
-            &copy; Copyright text
+            &copy; Copyright adot.io 2018
         </div>
     </div>
     </div>

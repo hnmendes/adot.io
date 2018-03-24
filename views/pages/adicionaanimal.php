@@ -1,7 +1,7 @@
 <?php
 	
 	if(!isset($_SESSION['logado'])){
-		echo '<script>alert("Você precisa está logado.")</script>';
+		echo '<script>alert("Você precisa estar logado.")</script>';
 		echo '<script>location.href= "/home"</script>';
 	}
 /*
@@ -17,6 +17,8 @@
 			+------------+--------------+------+-----+---------+-------+
 			
 			*/
+
+			// echo $_SERVER['HTTP_REFERER'];
 
 ?>
 <div class="container">

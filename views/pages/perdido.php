@@ -1,30 +1,23 @@
 <main>
-
-	<div class="container" style="margin-left: 500px; color: #79C1BB; max-width: 580px;">
-		<div class="card" style="max-height: 200px; top: 10px;">
-			<div class="card-content" >
-				<h1>Animais perdidos</h1>
-			</div>
-		</div>
-	</div>
-
-	<div class="divider"></div>
-
-	<div class="row">
-		<div class="col s3">
-			<div class="" style="bottom: 300px;">
-				<p id="lista">Raça:</p>
-				<div class="input-field col s12">
+	
+	<div class="row filtro" style="max-width:800px;">
+		<div class="col s6">
+		
+			<div class="card" style="max-width:-300px;"> 
+				<div class="card-content">
+				<div class="input-field col s6">
 					<i class=""></i>
 					<input id="icon_prefix" type="text" class="validate">
-					<label for="icon_prefix">Buscar...</label>
+					<label for="icon_prefix">Buscar</label>
 				</div>
+				
+				<div class="input-field col s6">
 				<p id="lista">Idade:</p>
-				<div class="input-field col s12">
 					<p class="range-field">
 						<input type="range" name="idade" min="0" max="17">
 					</p>
 				</div>
+				
 				<p id="lista">Porte:</p>
 				<select >
 					<option value="" disabled selected>Escolha o porte:</option>
@@ -37,80 +30,141 @@
 				</button>
 			</div>
 		</div>
-
-
-		<div  class=" col s9" class="card-content">
-			<div id="cx" class="card-panel">
-
-				<a class="waves-effect waves-light modal-trigger">
-					<img src="views/_images/cachorro.jpg" width="200" class="responsive-img" id="doog">
-				</a>
-
-				<br>    Nome: Dogao
-				<br>    Raça: Irineu
-				<br>    idade: 3 anos
-				<br>  <br>  <a href="#modal1" class="waves-effect waves-light btn modal-trigger"><i class="material-icons left">pets</i>Informações</a>
-
-				<!-- Modal Structure -->
-				<div id="modal1" class="modal" style="max-height: 650px;">
-					<div class="modal-content">
-						<h4 id="modal1">Dogao</h4>
-						
-
-						<div class="card">
-								<img class="material-boxed" src="views/_images/cachorro.jpg" width="300">
-							
-						</div>
-
-
-						<div class="card" style="margin-left: 500px; margin-top: -150px;/*margin-top: -300px*/">
-							<div class="card-content">
-								<p>Nome:</p>
-								<p>Raça:</p>
-							</div>
-						</div>
-						
-						<div class="card">
-							<div class="card-content">
-								<p class="right-align">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod empor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip</p>
-							</div>
-						</div>
-					</div>
-						
-
-						<div class="modal-footer">
-							<a href="/encontrar" class="waves-effect waves-light btn"><i class="material-icons left">pets</i>Encontrei</a>
-							<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">voltar</a>
-						</div>
-					</div>
-
-				</div>
-		</div>
-
-
 	</div>
+	</div> 
 
-	<ul class="pagination" align="center" style="margin-left: 500px">
+			<?php
+				
+				$animais = new AnimalPerdido();
 
-		<li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-		<li class="active teal lighten-2"><a href="pagina1.html">1</a></li>
-		<li class="waves-effect"><a href="pagina2.html">2</a></li>
-		<li class="waves-effect"><a href="pagina3.html">3</a></li>
-		<li class="waves-effect"><a href="pagina4.html">4</a></li>
-		<li class="waves-effect"><a href="pagina5.html">5</a></li>
-		<li class="waves-effect"><a href="pagina2.html"><i class="material-icons">chevron_right</i></a></li>
+				$animais = $animais->getAll();
 
-	</ul>
+				// var_dump($animais);
+
+				/*
+
+            | id         | int(11)      | NO   | PRI | NULL    |       |
+			| nome       | varchar(255) | NO   |     | NULL    |       |
+			| idade      | int(11)      | YES  |     | NULL    |       |
+			| raca       | varchar(255) | NO   |     | NULL    |       |
+			| porte      | varchar(255) | NO   |     | NULL    |       |
+			| foto       | varchar(255) | NO   |     | NULL    |       |
+			| descricao  | text         | YES  |     | NULL    |       |
+			| usuario_id | int(11)      | NO   | MUL | NULL    |       |
+			+------------+--------------+------+-----+---------+-------+
+			
+			*/
+			$i = 0;
+				foreach($animais as $animal){
+
+					$user = new Usuario();
+					$user = $user->getLocalById($animal['usuario_id']);
+					// print_r($user);
+
+					$i ++;
+
+					echo '<div class="adocao-animais"><div class="row">';
+					echo '<div style="max-width:700px;" class="card"><div class="card-content" style="">';
+
+            echo '    <a class="waves-effect waves-light modal-trigger">';
+
+            // var_dump($animal['foto']);
+                if($animal['foto'] == null || $animal['foto'] == ""){
+                    // var_dump($i);
+
+                    echo '<img src="views/_images/cachorro.jpg" width="200" class="responsive-img" id="doog">';
+                }else{
+                    echo '<img src="views/_images/user/animal/perdido/'.$animal['foto'].'" width="200" class="responsive-img" id="doog">';
+                }
+
+            echo    '</a>
+
+                <br>    <h5><b>Nome:</b> '.$animal['nome'].'
+                <br>    <h5><b>Raça:</b> '.$animal['raca'].'
+                <br>    <h5><b>Tipo:</b> '.$animal['tipo'].'
+                <br>    <h5><b>Idade:</b> '; 
+
+                if($animal['idade'] == null || $animal['idade'] == 0){
+                    echo 'Sem idade definida';
+                }else{
+                    echo $animal['idade'];
+                }
+            echo '  
+                <br>  <br>  <a href="#modal'.$i.'" class="waves-effect waves-light btn modal-trigger"><i class="material-icons left">pets</i>Informações</a>
+
+                <!-- Modal Structure -->
+                <div id="modal'.$i.'" class="modal" style="max-height: 400px;">
+                    <div class="modal-content">
+                        <h4 id="modal'.$i.'">'.$animal['nome'].'</h4>
+                        
+
+                        <div class="card">
+                            <div class="card-content">';
+
+                            if($animal['foto'] == null || $animal['foto'] == ""){
+                    // var_dump($i);
+
+                                echo '<img src="views/_images/cachorro.jpg" width="200" class="responsive-img" id="doog">';
+                            }else{
+                                echo '<img class="material-boxed" src="views/_images/user/animal/perdido/'.$animal['foto'].'" width="300" class="responsive-img" id="doog">';
+                }
+								// <img class="material-boxed" src="views/_images/cachorro.jpg" width="300">
+								
+								$user = new Usuario();
+								$user = $user->getLocalById($animal['usuario_id']);
+								
+                    echo        '<div class="card">
+                                <div class="card-content">
+								<p><b>Descricao:</b> '.$animal['descricao'].'</p>
+								<p><b>Estado:</b> '.$user[0]['estado'].'</p>
+								<p><b>Cidade:</b> '.$user[0]['municipio'].'</p>
+                                </div></div>
+                            </div>
+                        </div>
+                        
+
+                        <div class="modal-footer">';
+
+
+                if($animal['situacao'] == 0){
+					echo '<p style="color:yellow;"><i class="material-icons">warning</i>Animal perdido.</p><br>';
+					echo '<form method="post" action="/encontrar">';
+					echo '<input type="hidden" name="animalid" value="'.$animal['id'].'">';
+					echo '<input type="hidden" name="usuarioid" value="'.$animal['usuario_id'].'">';
+					echo '<button class="btn">Encontrei</button>';
+					echo '</form>';
+                	echo '<div class="divider"></div>';
+                }else if($animal['situacao'] == 3){
+                    echo '<p style="color:red;">Animal se encontra na situação de removido da lista.</p>';
+                
+                }else if($animal['situacao'] == 1){
+                    echo '<p style="color:green;">Animal se encontra na situação de adotado.</p>';
+                }
+                            
+                if((isset($_SESSION['logado']))&&($_SESSION['id'] == $animal['usuario_id']) && ($animal['situacao'] != 3)){ //todo
+                            echo '<form method = "post" action = "/deletaradocao">
+                                <input type="hidden" name="situacao" value="'.$animal['id'].'" >
+                                <button type="submit" class="waves-effect waves-light btn"><i class="material-icons left">pets</i>Remover da lista</button></form><div class="divider"></div>';
+                }
+                
+
+
+                echo '<a href="#!" class="modal-action modal-close waves-effect waves-green btn">voltar</a>
+                    </div>
+					</div></div></div></div></div></div></div>';
+					
+					// var_dump($animal['id']);
+				}
+
+	
+				?>
+
+
 
 </main>
 
-<?php 
-	$animalAdocao = new AnimalPerdido();
 
-	var_dump($animalAdocao);
-	
 
-?>
 
 <script>
 
@@ -125,7 +179,6 @@ window.onload=function(){
 		$('select').material_select();
 	});
 }
-
 
 $(".button-collapse").sideNav();
 
@@ -145,10 +198,9 @@ $('.modal').modal({
       	}
 );
 
-
 $(document).ready(function(){
     // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
     $('.modal').modal();
 });
-
+			
 </script>

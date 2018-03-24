@@ -27,9 +27,9 @@
 
 		// echo '<script>alert("'.var_dump($_SESSION['logado']).'");</script>';
 		
-		var_dump($usuario->getMunicipio());
+		// var_dump($usuario->getMunicipio());
 
-		echo '<script>alert("O id do usuario é "+'.$usuario->getIdusuario().');</script>';
+		// echo '<script>alert("O id do usuario é "+'.$usuario->getIdusuario().');</script>';
 
 
 

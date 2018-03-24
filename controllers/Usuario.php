@@ -635,6 +635,50 @@ public function todosUsuariosAdmin(){
     }
 
 
+    public function getEmailById($id){
+        $conn = new Sql();
+
+        try{
+            $conn = $conn->connect();
+            
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+            $result = $conn->query("SELECT email,nome FROM usuario WHERE id = ".$id.";" )->fetchAll(PDO::FETCH_ASSOC);
+
+            return $result;
+
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+
+        $conn = null;
+    }
+
+
+    public function desativarUsuario($id){
+        
+        $conn = new Sql();
+
+        try{
+            $conn = $conn->connect();
+            
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+            if($conn->query("DELETE FROM usuario WHERE id=".$id.";" )){
+                echo '<script>alert("Usuário apagado com sucesso.");</script>';
+                session_destroy();
+                echo '<script>location.href="/home"</script>';
+
+            }
+
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+
+        $conn = null;
+    }
+
+
     
 
 

@@ -1,10 +1,9 @@
-<?php 
+<?php
 
-    if(!isset($_SESSION['logado'])){
-        echo "<script>alert('Você não tem permissão, logue-se para entrar aqui.');</script>";
-        echo '<script>location.href="/home"</script>';
-    }
-
+if (!isset($_SESSION['logado'])) {
+    echo "<script>alert('Você não tem permissão, logue-se para entrar aqui.');</script>";
+    echo '<script>location.href="/home"</script>';
+}
 
 ?>
 
@@ -15,10 +14,10 @@
             <li class="tab"><a href="#conta">Minha conta</a></li>
             <li class="tab"><a href="#adocao">Meus animais para adoção</a></li>
             <li class="tab"><a href="#perdido">Meus animais perdidos</a></li>
-            <?php if($_SESSION['acesso']==1){
-                echo '<li class="tab"><a href="#usuarios">Usuarios</a></li>';
-            }
-            ?>
+            <?php if ($_SESSION['acesso'] == 1) {
+    echo '<li class="tab"><a href="#usuarios">Usuarios</a></li>';
+}
+?>
         </ul>
     </div>
 </nav>
@@ -31,24 +30,24 @@
             <h2 class="header">Seja bem vindo, <?php echo $_SESSION['nome'] ?></h2>
             <div class="card horizontal">
                 <div class="card-image">
-                    <img src="<?php 
-                                if(isset($_SESSION['foto'])){
-                                    echo 'views/_images/user/'.$_SESSION['foto']; 
-                                }else{
-                                    echo 'views/_images/cachorroegato.jpg';
-                                }
+                    <img src="<?php
+if (isset($_SESSION['foto'])) {
+    echo 'views/_images/user/' . $_SESSION['foto'];
+} else {
+    echo 'views/_images/cachorroegato.jpg';
+}
 
-                                    ?>" width="100" height="100">
-                                    
+?>" width="100" height="100">
 
-                                    
+
+
                 </div>
-                       
-                    
+
+
 
                 <div class="card-stacked">
                     <div class="card-content">
-                        
+
                         <p>Imagem: <a href="#" id="editFoto" style="">Alterar imagem</a>
 
                         <div id="ceditfoto"></div>
@@ -56,38 +55,41 @@
                         <p>Nome: <span><?php echo $_SESSION['nome']; ?></span> <label><a href="#" id="editNome">Editar</a></label></p>
 
                         <div id="ceditn"></div>
-                        
+
                         <p>Senha: <label> ******* </label><label><a href="#" id="editSenha">Editar</a></label></p>
-                        
+
                         <div id="cedits"></div>
 
-                        <p>Email: <label><?php echo $_SESSION['email']."      "; ?></label><label><a href="#" id="editEmail">Editar</a></label></p>
+                        <p>Email: <label><?php echo $_SESSION['email'] . "      "; ?></label><label><a href="#" id="editEmail">Editar</a></label></p>
 
                         <div id="cedite"></div>
-                        
-                        <p>Estado: <label><?php echo $_SESSION['estado']."    "; ?></label><label><a href="#" id="editEstado">Editar</a></label></p>
+
+                        <p>Estado: <label><?php echo $_SESSION['estado'] . "    "; ?></label><label><a href="#" id="editEstado">Editar</a></label></p>
 
                         <div id="ceditest">
 
-                        <p>Cidade: <label><?php echo $_SESSION['municipio']."   "; ?></label><label><a href="#" id="editCidade">Editar</a></label></p>
+                        <p>Cidade: <label><?php echo $_SESSION['municipio'] . "   "; ?></label><label><a href="#" id="editCidade">Editar</a></label></p>
 
                         <div id="ceditc"></div>
 
-                        <p>Sobre mim: <p><label> <?php 
-                            if(!isset($_SESSION['descricao'])|| $_SESSION['descricao'] == '' || $_SESSION['descricao'] == null){
-                                echo "Compartilhe o que gosta e/ou o que pensa. ";
-                            }else{
-                                echo $_SESSION['descricao'];
-                            }
+                        <p>Sobre mim: <p><label> <?php
+if (!isset($_SESSION['descricao']) || $_SESSION['descricao'] == '' || $_SESSION['descricao'] == null) {
+    echo "Compartilhe o que gosta e/ou o que pensa. ";
+} else {
+    echo $_SESSION['descricao'];
+}
 
-                        ?><a href="#" id="editDesc">Editar</a>
+?><a href="#" id="editDesc">Editar</a>
                         </label></p> </p>
 
                         <div id="ceditdesc"></div>
                     </div></div>
                     <br>
                     <div class="card-action">
-                        <a href="#">Desativar conta</a>
+                        <form method="post" action="/desativaracc">
+                            <input type="hidden" name="id" value="<?php echo $_SESSION['id'] ?>">
+                            <button class="btn" type="submit" >Desativar conta</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -112,133 +114,127 @@
 
             <div class="card">
                 <div class="card-content">
-                    
+
                         <p>Clique aqui pra adicionar um animal para adoção</p><br>
                         <a class="btn" href="/adicionaradocao" name="adicioanranimal">Adicionar animal</a>
-                    
+
                 </div>
             </div>
         </div>
-    
+
     <div class="container">
         <div  class=" col s9" class="card-content">
             <div id="cx" class="card-panel">
 
-                <?php 
-    
-    $animal = new AnimalAdocao();
+                <?php
 
-    $animal = $animal->getAllByUserId($_SESSION['id']);
+$animal = new AnimalAdocao();
 
-    $teste = new AnimalAdocao();
+$animal = $animal->getAllByUserId($_SESSION['id']);
 
-    // var_dump($animal);
+$teste = new AnimalAdocao();
 
-    if(is_array($animal) || isset($animal)){
+// var_dump($animal);
 
-        $cont = count($animal);
+if (is_array($animal) || isset($animal)) {
 
-        // var_dump($cont);
+    $cont = count($animal);
 
-        for($i = 0; $i < $cont; $i++){
-            
-            echo '<div class="card"><div class="card-content">';
+    // var_dump($cont);
 
-            echo '    <a class="waves-effect waves-light modal-trigger">';
+    for ($i = 0; $i < $cont; $i++) {
 
-            // var_dump($animal[$i]['foto']);
-                if($animal[$i]['foto'] == null || $animal[$i]['foto'] == ""){
-                    // var_dump($i);
+        echo '<div class="card"><div class="card-content">';
 
-                    echo '<img src="views/_images/cachorro.jpg" width="200" class="responsive-img" id="doog">';
-                }else{
-                    echo '<img src="views/_images/user/animal/adocao/'.$animal[$i]['foto'].'" width="200" class="responsive-img" id="doog">';
-                }
+        echo '    <a class="waves-effect waves-light modal-trigger">';
 
-            echo    '</a>
+        // var_dump($animal[$i]['foto']);
+        if ($animal[$i]['foto'] == null || $animal[$i]['foto'] == "") {
+            // var_dump($i);
 
-                <br>    Nome: '.$animal[$i]['nome'].'
-                <br>    Raça: '.$animal[$i]['raca'].'
-                <br>    Tipo: '.$animal[$i]['tipo'].'
-                <br>    Idade: '; 
+            echo '<img src="views/_images/cachorro.jpg" width="200" class="responsive-img" id="doog">';
+        } else {
+            echo '<img src="views/_images/user/animal/adocao/' . $animal[$i]['foto'] . '" width="200" class="responsive-img" id="doog">';
+        }
 
-                if($animal[$i]['idade'] == null || $animal[$i]['idade'] == 0){
-                    echo 'Sem idade definida';
-                }else{
-                    echo $animal[$i]['idade'];
-                }
-            echo '  
-                <br>  <br>  <a href="#modal'.$i.'" class="waves-effect waves-light btn modal-trigger"><i class="material-icons left">pets</i>Informações</a>
+        echo '</a>
+
+                <br>    Nome: ' . $animal[$i]['nome'] . '
+                <br>    Raça: ' . $animal[$i]['raca'] . '
+                <br>    Tipo: ' . $animal[$i]['tipo'] . '
+                <br>    Idade: ';
+
+        if ($animal[$i]['idade'] == null || $animal[$i]['idade'] == 0) {
+            echo 'Sem idade definida';
+        } else {
+            echo $animal[$i]['idade'];
+        }
+        echo '
+                <br>  <br>  <a href="#modal' . $i . '" class="waves-effect waves-light btn modal-trigger"><i class="material-icons left">pets</i>Informações</a>
 
                 <!-- Modal Structure -->
-                <div id="modal'.$i.'" class="modal" style="max-height: 400px;">
+                <div id="modal' . $i . '" class="modal" style="max-height: 400px;">
                     <div class="modal-content">
-                        <h4 id="modal'.$i.'">'.$animal[$i]['nome'].'</h4>
-                        
+                        <h4 id="modal' . $i . '">' . $animal[$i]['nome'] . '</h4>
+
 
                         <div class="card">
                             <div class="card-content">';
 
-                            if($animal[$i]['foto'] == null || $animal[$i]['foto'] == ""){
-                    // var_dump($i);
+        if ($animal[$i]['foto'] == null || $animal[$i]['foto'] == "") {
+            // var_dump($i);
 
-                                echo '<img src="views/_images/cachorro.jpg" width="200" class="responsive-img" id="doog">';
-                            }else{
-                                echo '<img class="material-boxed" src="views/_images/user/animal/adocao/'.$animal[$i]['foto'].'" width="300" class="responsive-img" id="doog">';
-                }
-                                // <img class="material-boxed" src="views/_images/cachorro.jpg" width="300">
-                    echo        '<div class="card">
+            echo '<img src="views/_images/cachorro.jpg" width="200" class="responsive-img" id="doog">';
+        } else {
+            echo '<img class="material-boxed" src="views/_images/user/animal/adocao/' . $animal[$i]['foto'] . '" width="300" class="responsive-img" id="doog">';
+        }
+        // <img class="material-boxed" src="views/_images/cachorro.jpg" width="300">
+        echo '<div class="card">
                                 <div class="card-content">
-                                <p><b>Descricao:</b> '.$animal[$i]['descricao'].'</p>
+                                <p><b>Descricao:</b> ' . $animal[$i]['descricao'] . '</p>
                                 </div></div>
                             </div>
                         </div>
-                        
+
 
                         <div class="modal-footer">';
 
+        if ($animal[$i]['situacao'] == 0) {
+            echo '<form method = "post" action = "/adotado">
 
-                if($animal[$i]['situacao'] == 0){
-                    echo '<form method = "post" action = "/adotado">
-                                
-                                <input type="hidden" name="situacao" value="'.$animal[$i]['id'].'" >
+                                <input type="hidden" name="situacao" value="' . $animal[$i]['id'] . '" >
                                 <button type="submit" class="waves-effect waves-light btn"><i class="material-icons left">pets</i>Foi adotado</button>
                             </form>
 
                             <div class="divider"></div>';
-                }else if($animal[$i]['situacao'] == 3){
-                    echo '<p style="color:red;">Animal se encontra na situação de removido da lista.</p>';
-                    echo '<form method = "post" action = "/readdadocao">
-                                
-                                <input type="hidden" name="situacao" value="'.$animal[$i]['id'].'" >
+        } else if ($animal[$i]['situacao'] == 3) {
+            echo '<p style="color:red;">Animal se encontra na situação de removido da lista.</p>';
+            echo '<form method = "post" action = "/readdadocao">
+
+                                <input type="hidden" name="situacao" value="' . $animal[$i]['id'] . '" >
                                 <button type="submit" class="waves-effect waves-light btn"><i class="material-icons left">pets</i>Colocar na lista novamente</button>
                             </form>';
-                
-                }else if($animal[$i]['situacao'] == 1){
-                    echo '<p style="color:green;">Animal se encontra na situação de adotado.</p>';
-                }
-                            
-                if(($_SESSION['id'] == $animal[$i]['usuario_id']) && ($animal[$i]['situacao'] != 3)){ //todo
-                            echo '<form method = "post" action = "/deletaradocao">
-                                <input type="hidden" name="situacao" value="'.$animal[$i]['id'].'" >
+
+        } else if ($animal[$i]['situacao'] == 1) {
+            echo '<p style="color:green;">Animal se encontra na situação de adotado.</p>';
+        }
+
+        if (($_SESSION['id'] == $animal[$i]['usuario_id']) && ($animal[$i]['situacao'] != 3)) { //todo
+            echo '<form method = "post" action = "/deletaradocao">
+                                <input type="hidden" name="situacao" value="' . $animal[$i]['id'] . '" >
                                 <button type="submit" class="waves-effect waves-light btn"><i class="material-icons left">pets</i>Remover da lista</button></form><div class="divider"></div>';
-                }
-                
+        }
 
-
-                echo '<a href="#!" class="modal-action modal-close waves-effect waves-green btn">voltar</a>
+        echo '<a href="#!" class="modal-action modal-close waves-effect waves-green btn">voltar</a>
                     </div>
                     </div></div></div></div>';
-            }
-
     }
 
-    else if($animal == null || !is_array($animal) || !isset($animal)){
-        echo '<p>Você não tem nenhum animal para doar cadastrado.</p>';
-    }
+} else if ($animal == null || !is_array($animal) || !isset($animal)) {
+    echo '<p>Você não tem nenhum animal para doar cadastrado.</p>';
+}
 
-    // print_r($teste);
-
+// print_r($teste);
 
 ?>
 
@@ -252,17 +248,170 @@
 
 </div>
 </div>
-<div id="perdido" class="col s12">Animais perdidos</div>
-<?php if(isset($_SESSION['acesso']) && $_SESSION['acesso']==1){
-        
-        $consulta = new Usuario();
 
-        $array = $consulta->todosUsuariosAdmin();
+                                            <!-- PARTE DOS ANIMAIS PERDIDOS -->
 
-        // var_dump($array);
-    
+
+
+<div id="perdido" class="col s12">
+
+<div class="container">
+        <h2>Lista de animais perdidos de <?php echo $_SESSION['nome'] ?></h2>
+    </div>
+
+    <div class="row">
+        <div class="col s3">
+
+            <div class="card">
+                <div class="card-content">
+
+                        <p>Clique aqui pra adicionar um animal perdido</p><br>
+                        <a class="btn" href="/adicionarperdido" name="adicioanranimal">Adicionar animal</a>
+
+                </div>
+            </div>
+        </div>
+
+    <div class="container">
+        <div  class=" col s9" class="card-content">
+            <div id="cx" class="card-panel">
+
+                <?php
+
+$animalperdido = new AnimalPerdido();
+
+$animalperdido = $animalperdido->getAllByUserId($_SESSION['id']);
+
+// $teste = new AnimalAdocao();
+
+// var_dump($animal);
+
+if (is_array($animalperdido) && isset($animalperdido) && count($animalperdido) != 0) {
+
+    $cont = count($animalperdido);
+
+    // var_dump($cont);
+
+    for ($i = 0; $i < $cont; $i++) {
+
+        echo '<div class="card"><div class="card-content">';
+
+        echo '    <a class="waves-effect waves-light modal-trigger">';
+
+        // var_dump($animal[$i]['foto']);
+        if ($animalperdido[$i]['foto'] == null || $animalperdido[$i]['foto'] == "") {
+            // var_dump($i);
+
+            echo '<img src="views/_images/cachorro.jpg" width="200" class="responsive-img" id="doog">';
+        } else {
+            echo '<img src="views/_images/user/animal/perdido/' . $animalperdido[$i]['foto'] . '" width="200" class="responsive-img" id="doog">';
+        }
+
+        echo '</a>
+
+                <br>    Nome: ' . $animalperdido[$i]['nome'] . '
+                <br>    Raça: ' . $animalperdido[$i]['raca'] . '
+                <br>    Tipo: ' . $animalperdido[$i]['tipo'] . '
+                <br>    Idade: ';
+
+        if ($animalperdido[$i]['idade'] == null || $animalperdido[$i]['idade'] == 0) {
+            echo 'Sem idade definida';
+        } else {
+            echo $animalperdido[$i]['idade'];
+        }
+        echo '
+                <br>  <br>  <a href="#modalj' . $i . '" class="waves-effect waves-light btn modal-trigger"><i class="material-icons left">pets</i>Informações</a>
+
+                <!-- Modal Structure -->
+                <div id="modalj' . $i . '" class="modal" style="max-height: 400px;">
+                    <div class="modal-content">
+                        <h4 id="modalj' . $i . '">' . $animalperdido[$i]['nome'] . '</h4>
+
+
+                        <div class="card">
+                            <div class="card-content">';
+
+        if ($animalperdido[$i]['foto'] == null || $animalperdido[$i]['foto'] == "") {
+            // var_dump($i);
+
+            echo '<img src="views/_images/cachorro.jpg" width="200" class="responsive-img" id="doog">';
+        } else {
+            echo '<img class="material-boxed" src="views/_images/user/animal/perdido/' . $animalperdido[$i]['foto'] . '" width="300" class="responsive-img" id="doog">';
+        }
+        // <img class="material-boxed" src="views/_images/cachorro.jpg" width="300">
+        echo '<div class="card">
+                                <div class="card-content">
+                                <p><b>Descricao:</b> ' . $animalperdido[$i]['descricao'] . '</p>
+                                </div></div>
+                            </div>
+                        </div>
+
+
+                        <div class="modal-footer">';
+
+                        if($animalperdido[$i]['situacao'] == 0  ){
+                            echo '<p style="color:yellow;"><i class="material-icons">warning</i>Animal perdido.</p><br>';
+
+                            echo '<div class="divider"></div>';
+                        }
+                        
+                        if($animalperdido[$i]['situacao'] == 3){
+                            echo '<p style="color:red;">Animal se encontra na situação de removido da lista.</p>';
+                        
+                        }
+                        
+                        if($animalperdido[$i]['situacao'] == 1){
+                            echo '<p style="color:green;">Animal se encontra na situação de adotado.</p>';
+                        }
+                                    
+                        if((isset($_SESSION['logado']))&&($_SESSION['id'] == $animalperdido[$i]['usuario_id']) && ($animalperdido[$i]['situacao'] != 3)){ //todo
+                                    echo '<form method = "post" action = "/deletarperdido">
+                                        <input type="hidden" name="situacao" value="'.$animalperdido[$i]['id'].'" >
+                                        <button type="submit" class="waves-effect waves-light btn"><i class="material-icons left">pets</i>Remover da lista</button></form><div class="divider"></div>';
+                        }
+
+        echo '<a href="#!" class="modal-action modal-close waves-effect waves-green btn">voltar</a>
+                    </div>
+                    </div></div></div></div>';
+    }
+
+} else {
+    echo '<p>Você não tem nenhum animal perdido.</p>';
+}
+
+// print_r($teste);
+
 ?>
-        
+
+                </div>
+        </div>
+
+
+    </div>
+
+    </div>
+
+</div>
+</div>
+
+
+</div>
+
+
+
+
+                                            <!-- FIM -->
+
+<?php if (isset($_SESSION['acesso']) && $_SESSION['acesso'] == 1) {
+
+    $consulta = new Usuario();
+
+    $array = $consulta->todosUsuariosAdmin();
+
+    // var_dump($array);
+
+    ?>
+
         <div id="usuarios" class="col s12">
 
         <div class="container">
@@ -275,51 +424,49 @@
               <th>Nome do Usuário</th>
               <th>Email</th>
               <th>Grau de acesso</th>
-              <th>Ação</th>
           </tr>
         </thead>
-        <?php } ?>  
+        <?php }?>
 
         <tbody>
         <?php
-        if(isset($_SESSION['acesso']) && $_SESSION['acesso']==1){
-            
-            $i = 0;
+if (isset($_SESSION['acesso']) && $_SESSION['acesso'] == 1) {
 
-            for($i = 0; $i < count($array); $i++){
-                
-                echo '<tr><td>'.$array[$i]['nome'].'</td>';
-                echo '<td>'.$array[$i]['email'].'</td>';
-                echo '<td>'.$texto = $array[$i]['acesso'] == 1 ? "Admin" : "Usuário".'</td>';
-                echo '<td><a href="#" class="btn">Deletar</a><a href="#" class="btn" style="margin-left:20px;">Editar Acesso</a></td></tr>';
+    $i = 0;
 
-            }
+    for ($i = 0; $i < count($array); $i++) {
 
-            }
-        ?>
+        echo '<tr><td>' . $array[$i]['nome'] . '</td>';
+        echo '<td>' . $array[$i]['email'] . '</td>';
+        echo '<td>' . $texto = $array[$i]['acesso'] == 1 ? "Admin" : "Usuário" . '</td>';
+
+    }
+
+}
+?>
 
         </tbody>
 
       </table></div></div></div></div>
 <?php
-       /*<tr>
-            <td>Alvin</td>
-            <td>alvin@totmail.com</td>
-            <td>Usuário</td>
-            <td><a href="#" class="btn">Deletar</a><a href="#" class="btn" style="margin-left:20px;">Editar Acesso</a></td>
-          </tr>
-          <tr>
-            <td>Alan</td>
-            <td>alan@gotmail.com</td>
-            <td>Usuário</td>
-            <td><a href="#" class="btn">Deletar</a><a href="#" class="btn" style="margin-left:20px;">Editar Acesso</a></td>
-          </tr>
-          <tr>
-            <td>Jonathan</td>
-            <td>jonathan@gmail.com</td>
-            <td>Admin</td>
-            <td><a href="#" class="btn">Deletar</a><a href="#" class="btn" style="margin-left:20px;">Editar Acesso</a></td>
-          </tr>*/
+/*<tr>
+<td>Alvin</td>
+<td>alvin@totmail.com</td>
+<td>Usuário</td>
+<td><a href="#" class="btn">Deletar</a><a href="#" class="btn" style="margin-left:20px;">Editar Acesso</a></td>
+</tr>
+<tr>
+<td>Alan</td>
+<td>alan@gotmail.com</td>
+<td>Usuário</td>
+<td><a href="#" class="btn">Deletar</a><a href="#" class="btn" style="margin-left:20px;">Editar Acesso</a></td>
+</tr>
+<tr>
+<td>Jonathan</td>
+<td>jonathan@gmail.com</td>
+<td>Admin</td>
+<td><a href="#" class="btn">Deletar</a><a href="#" class="btn" style="margin-left:20px;">Editar Acesso</a></td>
+</tr>*/
 ?>
 
 <script>
@@ -398,9 +545,9 @@ function editFoto() {
 
 //Ocultar input de editar nome, ao clicar cancelar
 function mudaNome() {
-        
+
         var display = document.getElementById('ceditn').style.display;
-        
+
         document.getElementById('ceditn').style.display = 'none';
 
         location.href = '/logado';
@@ -408,9 +555,9 @@ function mudaNome() {
 
 //Ocultar input de editar senha, ao clicar cancelar
 function mudaSenha() {
-        
+
         var display = document.getElementById('cedits').style.display;
-        
+
         document.getElementById('cedits').style.display = 'none';
 
         location.href = '/logado';
@@ -418,9 +565,9 @@ function mudaSenha() {
 
 //Ocultar input de editar email, ao clicar cancelar
 function mudaEmail() {
-        
+
         var display = document.getElementById('cedite').style.display;
-        
+
         document.getElementById('cedite').style.display = 'none';
 
         location.href = '/logado';
@@ -428,9 +575,9 @@ function mudaEmail() {
 
 //Ocultar input de editar estado, ao clicar cancelar
 function mudaEstado() {
-        
+
         var display = document.getElementById('ceditest').style.display;
-        
+
         document.getElementById('ceditest').style.display = 'none';
 
         location.href = '/logado';
@@ -440,7 +587,7 @@ function mudaEstado() {
 function mudaCidade(){
 
         var display = document.getElementById('ceditc').style.display;
-        
+
         document.getElementById('ceditc').style.display = 'none';
 
         location.href = '/logado';
@@ -449,7 +596,7 @@ function mudaCidade(){
 function mudaDesc(){
 
         var display = document.getElementById('ceditdesc').style.display;
-        
+
         document.getElementById('ceditdesc').style.display = 'none';
 
         location.href = '/logado';
@@ -458,7 +605,7 @@ function mudaDesc(){
 function mudaFoto(){
 
         var display = document.getElementById('ceditfoto').style.display;
-        
+
         document.getElementById('ceditfoto').style.display = 'none';
 
         location.href = '/logado';

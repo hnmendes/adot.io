@@ -8,6 +8,7 @@ class AnimalAdocao extends Animal{
 		$this->setRaca($raca);
 		$this->setIdade($idade);
         $this->setTipo($tipo);
+        $this->setPorte($porte);
         $this->setDescricao($descricao);
     }
     
@@ -22,6 +23,24 @@ class AnimalAdocao extends Animal{
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
             $result = $conn->query("SELECT * FROM animais_adocao WHERE situacao = 1 OR situacao = 0;")->fetchAll(PDO::FETCH_ASSOC);
+
+            return $result;
+
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
+
+    public function getAllById($id){
+
+        $conn = new Sql();
+
+        try{
+            $conn = $conn->connect();
+
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+            $result = $conn->query("SELECT * FROM animais_adocao WHERE id = $id;")->fetchAll(PDO::FETCH_ASSOC);
 
             return $result;
 

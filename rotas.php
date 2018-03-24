@@ -55,13 +55,13 @@ function getPage()
                 include_once('views/pages/perdido.php');
                 break;
 
-            case '/encontrar' :
-                include_once('views/pages/encontrar.php');
-                break;
-
             case '/adicionaradocao' :
                 include_once('views/pages/adicionaanimal.php'); //Página do formulário de adicionar animal lá na lista de adoção.
                 break;
+
+            case '/adicionarperdido' :
+                include_once('views/pages/adicionaanimal2.php'); //Página do formulário de adicionar animal lá na lista de perdido.
+                break;  
 
             default :
                 include_once('views/pages/pageerror.php');
@@ -127,6 +127,31 @@ function getPage()
             case '/addlistaadocao' :
                 include_once('views/pages/addlistaadocao.php'); //Dados posts da página do formulário pra add na lista de adoção.
                 break;
+
+            case '/addlistaperdido' :
+                include_once('views/pages/addlistaperdido.php');
+                break;
+
+            case '/adotar' :
+                include_once('views/pages/adotar.php');
+                break;
+            
+            case '/deletarperdido' :
+                include_once('views/pages/delperdido.php');
+                break;
+
+            case '/encontrar' :
+                include_once('views/pages/encontrar.php');
+                break;
+
+            case '/emailperdido' :
+                include_once('views/pages/emailperdido.php');
+                break;
+            
+            case '/desativaracc' :
+                include_once('views/pages/desativarconta.php');
+                break;
+
         }       
     }
 

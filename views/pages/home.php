@@ -68,7 +68,7 @@
         <div class="col s12 center">
             <h3><i class="mdi-content-send brown-text"></i></h3>
             <h4>Contate-nos</h4>
-            <p >Olá, nossa equipe é formada por 3 programadores. Para contatar-nos envie um email para Henrique Nunes (henriquenunesti@gmail.com), Claudes Gomes (claudesferreira99@gmail.com) e Jonas Joséilton. </p>
+            <p>Endereço de contato adot.io.ifpe@gmail.com.</p>
         </div>
     </div>
 
