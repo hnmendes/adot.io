@@ -61,7 +61,15 @@ function getPage()
 
             case '/adicionarperdido' :
                 include_once('views/pages/adicionaanimal2.php'); //Página do formulário de adicionar animal lá na lista de perdido.
-                break;  
+                break; 
+            
+            case '/pesquisaadocao' :
+                include_once('views/pages/pesquisaadocao.php');
+                break;
+
+            case '/pesquisaperdido' :
+                include_once('views/pages/pesquisaperdido.php');
+                break;
 
             default :
                 include_once('views/pages/pageerror.php');

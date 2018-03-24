@@ -1,37 +1,50 @@
 <main>
 	
-	<div class="row filtro" style="max-width:800px;">
-		<div class="col s6">
-		
-			<div class="card" style="max-width:-300px;"> 
-				<div class="card-content">
-				<div class="input-field col s6">
-					<i class=""></i>
-					<input id="icon_prefix" type="text" class="validate">
-					<label for="icon_prefix">Buscar</label>
-				</div>
-				
-				<div class="input-field col s6">
-				<p id="lista">Idade:</p>
-					<p class="range-field">
-						<input type="range" name="idade" min="0" max="17">
-					</p>
-				</div>
-				
-				<p id="lista">Porte:</p>
-				<select >
-					<option value="" disabled selected>Escolha o porte:</option>
-					<option value="1">Pequeno</option>
-					<option value="2">Medio</option>
-					<option value="3">Grande</option>
+<div class="row filtro">
+	<div class="col s12 ">
+		<div class="card ">
+			<div class="card-content ">
+				<span class="card-title">Pesquisa</span>
+				<form method="get" action="/pesquisaadocao">
+				<p>Idade:</p>
+				<select name="idade" required>
+					<option value="" disabled selected>Selecione a idade</option>
+					<option value="1">1 ano</option>
+					<option value="2">2 anos</option>
+					<option value="3">3 anos</option>
+					<option value="4">4 anos</option>
+					<option value="5">5 anos</option>
+					<option value="6">6 anos</option>
+					<option value="7">7 anos</option>
+					<option value="8">8 anos</option>
+					<option value="9">9 anos</option>
+					<option value="10">10 anos</option>
+					<option value="11">11 anos</option>
+					<option value="12">12 anos</option>
+					<option value="13">13 anos</option>
+					<option value="14">14 anos</option>
+					<option value="15">15 anos</option>
+					<option value="16">16 anos</option>
+					<option value="17">17 anos</option>
 				</select>
+
+				<p>Porte:</p>
+				<select name="porte" required>
+					<option value="" disabled selected>Escolha o porte</option>
+					<option value="Pequeno">Pequeno</option>
+					<option value="Médio">Médio</option>
+					<option value="Grande">Grande</option>
+				</select>
+			</div>
+			<div class="card-action">
 				<button class="btn waves-effect waves-light" type="submit" name="action">Pesquisar
 					<i class="material-icons right">search</i>
 				</button>
 			</div>
+			</form>
 		</div>
 	</div>
-	</div> 
+</div>
 
 			<?php
 				

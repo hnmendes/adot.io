@@ -320,7 +320,36 @@ class AnimalPerdido extends Animal
         }catch(PDOException $e){
             echo $e->getMessage();
         }
+
+        $conn = null;
     }
+
+    public function searchByPorteIdade($porte,$idade){
+       
+        $conn = new Sql();
+        
+        try {
+
+            $conn = $conn->connect();
+
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            
+            $result = $conn->query("SELECT * FROM animais_perdidos WHERE porte = '".$porte."' AND idade = ".$idade.";")->fetchAll(PDO::FETCH_ASSOC);
+            
+            return $result;
+            
+            
+        }
+        
+        catch(PDOException $e){
+            echo '<div class = "container"><div class = "card"><div class = "card-content">'."<br>" . $e->getMessage().'</div></div></div>';
+            
+        }
+        
+        
+        $conn = null;
+    }
+
 
 
 }

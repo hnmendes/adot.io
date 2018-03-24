@@ -341,7 +341,7 @@ public function registraAnimal($usuario_id,$imagem){
         }
         
         catch(PDOException $e){
-            echo '<div class = "container"><div class = "card"><div class = "card-content">'. $conn . "<br>" . $e->getMessage().'</div></div></div>';
+            echo '<div class = "container"><div class = "card"><div class = "card-content">'. "<br>" . $e->getMessage().'</div></div></div>';
             
         }
         
@@ -349,6 +349,32 @@ public function registraAnimal($usuario_id,$imagem){
         $conn = null;
         
         
+    }
+
+    public function searchByPorteIdade($porte,$idade){
+       
+        $conn = new Sql();
+        
+        try {
+
+            $conn = $conn->connect();
+
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            
+            $result = $conn->query("SELECT * FROM animais_adocao WHERE porte = '".$porte."' AND idade = ".$idade.";")->fetchAll(PDO::FETCH_ASSOC);
+            
+            return $result;
+            
+            
+        }
+        
+        catch(PDOException $e){
+            echo '<div class = "container"><div class = "card"><div class = "card-content">'."<br>" . $e->getMessage().'</div></div></div>';
+            
+        }
+        
+        
+        $conn = null;
     }
 
 
