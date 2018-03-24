@@ -16,8 +16,8 @@ $valorporte = $valorporte[1];
 
 $valoridade = (int)$valoridade[1];
 
-var_dump($valorporte);
-var_dump($valoridade);
+//var_dump($valorporte);
+//var_dump($valoridade);
 
 // $animal = new AnimalAdocao();
 
