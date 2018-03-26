@@ -3,12 +3,21 @@
 
 
     <div class="col l3 s12">
-        <h5 class="white-text">ONGS</h5>
-        <ul>
-            <li><a class="white-text" href="#!">ONG 1</a></li>
-            <li><a class="white-text" href="#!">ONG 2</a></li>
-            <li><a class="white-text" href="#!">ONG 3</a></li>
-            <li><a class="white-text" href="#!">ONG 4</a></li>
+        <h5 class="white-text center">ONGS</h5>
+        <ul class="center">
+            <li>
+                <a class="white-text" href="https://www.facebook.com/Ong-PetPe-142450352523901/">PET PE |</a>
+                <a class="white-text" href="#!">União |</a>
+                <a class="white-text" href="https://www.facebook.com/DesabandoneCaruaru/">Desabandone |</a>
+                <a class="white-text" href="https://www.facebook.com/MPColinaPE/timeline">Movimento</a>
+            </li>
+
+            <li>
+                <img src="\views\_images\petpe.jpg" style="width: 50px; height: 50px;">
+                <img src="\views\_images\uniao.jpg" style="width: 50px; height: 50px;">
+                <img src="\views\_images\desabandone.jpg" style="width: 50px; height: 50px;">
+                <img src="\views\_images\movimento.jpg" style="width: 50px; height: 50px;">
+            </li>
         </ul>
 
     </div>
@@ -17,7 +26,7 @@
             &copy; Copyright adot.io 2018
         </div>
     </div>
-    </div>
+</div>
 </footer>
 <!-- Fim rodapé -->
 
@@ -41,7 +50,7 @@
             },
             complete: function() { } // Callback for Modal close
         }
-    );
+        );
 
 
     // $('#close').modal('close');
@@ -62,9 +71,9 @@
     });
 
     
-        $('.dropdown-button').dropdown({
-          inDuration: 300,
-          outDuration: 225,
+    $('.dropdown-button').dropdown({
+      inDuration: 300,
+      outDuration: 225,
       constrainWidth: false, // Does not change width of dropdown to that of the activator
       hover: false, // Activate on hover
       gutter: 0, // Spacing from edge
