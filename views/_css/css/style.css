@@ -6,8 +6,8 @@
  * Made By MaterializeCSS.com
  */
 
-nav ul a,
-nav .brand-logo {
+ nav ul a,
+ nav .brand-logo {
   color: #444;
 }
 
@@ -16,8 +16,8 @@ nav .brand-logo {
 }
 
 .adocao-animais{
-  position:relative;
-  margin-left:20%;
+ position:relative;
+ margin-left:20%;
 
 }
 
@@ -42,9 +42,96 @@ p {
 }
 
 .parallax-container .section {
-    width: 100%;
+  width: 100%;
 }
 
+
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+  font-size: inherit;
+}
+
+footer.page-footer {
+  margin: 0;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+/*BARRA DE ROLAGEM EDITADO */
+
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #26a69a;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+.autor{
+  font-size:70%;
+  font-style: italic;
+  font-size-adjust:initial ;
+}
+
+.logado{
+  background-color: #26A69A;
+  max-height: 200px ;
+  max-width: 1500px;
+}
+
+.logado a{
+  color: #79C1BB;
+}
+
+.titulo{
+  font-size: 300%;
+}
+
+.erro{
+  font-family: "Arial";
+  color:red;
+  position: relative;
+  left: 60px;
+  font-size: 15.5px;
+  top: 20px;
+}
+
+
+.dropdown{
+  position: relative;
+  margin-left: 2.5rem;
+  background:#FAFAFA;
+  margin-bottom: 20px;
+  -webkit-align-content: center;
+  max-height: 200px;
+}
+/* MEDIA QUERYS/TYPES*/
 @media only screen and (max-width : 992px) {
   .parallax-container .section {
     position: absolute;
@@ -61,87 +148,9 @@ p {
   }
 }
 
-.icon-block {
-  padding: 0 15px;
-}
-.icon-block .material-icons {
-  font-size: inherit;
-}
-
-footer.page-footer {
-  margin: 0;
-}
-
- body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-  }
-
-  main {
-    flex: 1 0 auto;
-  }
-
-/*BARRA DE ROLAGEM EDITADO */
-
-/* width */
-::-webkit-scrollbar {
-    width: 7px;
-    
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-    background: #f1f1f1; 
-
-}
- 
-/* Handle */
-::-webkit-scrollbar-thumb {
-    background: #26a69a;
-    border-radius: 10px;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-    background: #555; 
-}
-
-.autor{
-    font-size:70%;
-    font-style: italic;
-    font-size-adjust:initial ;
-}
-
-.logado{
-    background-color: #26A69A;
-    max-height: 200px ;
-    max-width: 1500px;
-}
-
-.logado a{
-    color: #79C1BB;
-}
-
-.titulo{
-    font-size: 300%;
-}
-
-.erro{
-    font-family: "Arial";
-    color:red;
-    position: relative;
-    left: 60px;
-    font-size: 15.5px;
-    top: 20px;
-}
-
-
-.dropdown{
-    position: relative;
-    margin-left: 2.5rem;
-    background:#FAFAFA;
-    margin-bottom: 20px;
-    -webkit-align-content: center;
-    max-height: 200px;
+@media screen  and (max-width: 501px){
+  .adocao-animais{
+   position: relative;
+   margin-left:55%;
+   }
 }
