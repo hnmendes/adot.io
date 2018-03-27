@@ -273,7 +273,7 @@ if (!isset($_SESSION['logado'])) {
 
 <div id="perdido" class="col s12">
         <div class="container">
-            <h2>Lista de animais para adoção de <?php echo $_SESSION['nome'] ?></h2>
+            <h2>Lista de animais perdidos <?php echo $_SESSION['nome'] ?></h2>
         </div>
 
 
@@ -282,7 +282,7 @@ if (!isset($_SESSION['logado'])) {
                 <div class="card col s12 m2" style="position: fixed;">
                     <div class="card-content">
 
-                        <p>Clique aqui pra adicionar um animal para adoção</p><br>
+                        <p>Clique aqui pra adicionar um animal perdido</p><br>
                         <a class="btn" href="/adicionaradocao" name="adicioanranimal">Adicionar animal</a>
 
                     </div>
@@ -295,7 +295,7 @@ if (!isset($_SESSION['logado'])) {
                 <div class="card col s12 m2">
                     <div class="card-content">
 
-                        <p>Clique aqui pra adicionar um animal para adoção</p><br>
+                        <p>Clique aqui pra adicionar um animal perdido</p><br>
                         <a class="btn" href="/adicionaradocao" name="adicioanranimal">Adicionar animal</a>
 
                     </div>
