@@ -45,5 +45,8 @@ Home
 
 
 
-**Obs: Se der erro 404, ativar AllowOverride All no arquivo de configurações do servidor apache.
-**     Se não tiver conectando no sql, verificar se a linha no arquivo php.ini que se refere a extension=php_pdo_mysql.dll esteja comentado, descomente.
+**Obs:** 
+
+**Se der erro 404, ativar AllowOverride All no arquivo de configurações do servidor apache.**
+
+**Se não tiver conectando no sql, verificar se a linha no arquivo php.ini que se refere a extension=php_pdo_mysql.dll esteja comentado, descomente.**
