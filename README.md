@@ -42,3 +42,7 @@ Home
 Área de Animais para Adoção
 
 ![alt text](https://github.com/ricknunesmendes/adot.io/blob/master/Foto3.png)
+
+
+
+obs: Se der erro 404, ativar AllowOverride All
